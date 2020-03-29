@@ -2,12 +2,12 @@
   "name": "aws-lambda-router",
   "version": "0.8.2",
   "description": "AWS lambda router",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "yarn clean && jest --coverage",
     "build": "tsc",
-    "clean": "rm -f lib/*.d.ts lib/*.js index.js index.d.ts"
+    "clean": "rm -fR dist"
   },
   "repository": {
     "type": "git",

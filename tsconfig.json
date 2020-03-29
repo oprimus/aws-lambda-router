@@ -5,6 +5,7 @@
       "es2017"
     ],
     "module": "commonjs",
+    "outDir": "dist",
     "moduleResolution": "node",
     "target": "es2017",
     "strictNullChecks": true,
