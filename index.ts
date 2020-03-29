@@ -2,6 +2,7 @@ import { ProxyIntegrationConfig, ProxyIntegrationEvent } from './lib/proxyIntegr
 import { SnsConfig, SnsEvent } from './lib/sns'
 import { SqsConfig, SqsEvent } from './lib/sqs'
 import { S3Config, S3Event } from './lib/s3'
+import { CweConfig, CweEvent } from './lib/cwe'
 import { Context } from 'aws-lambda'
 import { EventProcessor } from './lib/EventProcessor'
 
@@ -10,10 +11,11 @@ export interface RouteConfig {
   sns?: SnsConfig
   sqs?: SqsConfig
   s3?: S3Config
+  cwe?: CweConfig
   debug?: boolean
 }
 
-export type RouterEvent = ProxyIntegrationEvent | SnsEvent | SqsEvent | S3Event
+export type RouterEvent = ProxyIntegrationEvent | SnsEvent | SqsEvent | S3Event | CweEvent
 
 export const handler = (routeConfig: RouteConfig) => {
   const eventProcessorMapping = extractEventProcessorMapping(routeConfig)
