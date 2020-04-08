@@ -49,6 +49,20 @@ describe('sqs.processor', () => {
     expect(sqs(sqsCfg, event, context)).toEqual([event.Records[0].body])
   })
 
+  it('should call action with sqs-message with message body only', () => {
+    const sqsCfg = { routes: [{ source: /porter/, action: (events: any) => events, messageBodyOnly: true }] }
+    const event = { Records: [{ eventSource: 'aws:sqs', eventSourceARN: 'importer', body: 'B' }] } as SqsEvent
+
+    expect(sqs(sqsCfg, event, context)).toEqual([event.Records[0].body])
+  })
+
+  it('should call action with full sqs record', () => {
+    const sqsCfg = { routes: [{ source: /porter/, action: (events: any) => events, messageBodyOnly: false }] }
+    const event = { Records: [{ eventSource: 'aws:sqs', eventSourceARN: 'importer', body: 'B' }] } as SqsEvent
+
+    expect(sqs(sqsCfg, event, context)).toEqual([event.Records[0]])
+  })
+
   it('should call first action with matching subject', () => {
     const sqsCfg = {
       routes: [

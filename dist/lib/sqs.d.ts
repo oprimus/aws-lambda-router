@@ -3,7 +3,8 @@ import { ProcessMethod } from './EventProcessor';
 export declare type SqsEvent = SQSEvent;
 export interface SqsRoute {
     source: string | RegExp;
-    action: (messages: SQSRecord['body'][], context: Context) => Promise<any> | any;
+    action: (messages: SQSRecord['body'][] | SQSRecord[], context: Context) => Promise<any> | any;
+    messageBodyOnly?: boolean;
 }
 export interface SqsConfig {
     routes: SqsRoute[];

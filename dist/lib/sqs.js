@@ -15,13 +15,15 @@ exports.process = (sqsConfig, event, context) => {
     for (const routeConfig of sqsConfig.routes) {
         if (routeConfig.source instanceof RegExp) {
             if (routeConfig.source.test(recordSourceArn)) {
-                const result = routeConfig.action(records.map(record => record.body), context);
+                const input = routeConfig.messageBodyOnly === false ? records : records.map(record => record.body);
+                const result = routeConfig.action(input, context);
                 return result || {};
             }
         }
         else {
             if (routeConfig.source === recordSourceArn) {
-                const result = routeConfig.action(records.map(record => record.body), context);
+                const input = routeConfig.messageBodyOnly === false ? records : records.map(record => record.body);
+                const result = routeConfig.action(input, context);
                 return result || {};
             }
         }
