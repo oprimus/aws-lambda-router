@@ -30,14 +30,14 @@
   },
   "homepage": "https://github.com/spring-media/aws-lambda-router#readme",
   "devDependencies": {
-    "@types/jest": "^24.9.0",
-    "@types/node": "^8.10.59",
-    "codecov": "^3.6.2",
-    "jest": "24.9.0",
-    "ts-jest": "24.2.0",
-    "typescript": "3.7.5"
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.11.1",
+    "codecov": "^3.6.5",
+    "jest": "25.3.0",
+    "ts-jest": "25.3.1",
+    "typescript": "3.8.3"
   },
   "dependencies": {
-    "@types/aws-lambda": "^8.10.40"
+    "@types/aws-lambda": "^8.10.50"
   }
 }
