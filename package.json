@@ -7,7 +7,8 @@
   "scripts": {
     "test": "yarn clean && jest --coverage",
     "build": "tsc",
-    "clean": "rm -f lib/*.d.ts lib/*.js index.js index.d.ts"
+    "clean": "rm -f lib/*.d.ts lib/*.js index.js index.d.ts",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
