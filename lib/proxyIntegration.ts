@@ -113,7 +113,7 @@ export const process: ProcessMethod<ProxyIntegrationConfig, APIGatewayProxyEvent
     errorMapping['NO_MATCHING_ACTION'] = 404
 
     if (proxyIntegrationConfig.proxyPath) {
-      event.path = (event.pathParameters || {})[proxyIntegrationConfig.proxyPath]
+      event.path = (event.pathParameters || {})[proxyIntegrationConfig.proxyPath] || ''
       if (proxyIntegrationConfig.debug) {
         console.log(`proxy path is set: ${proxyIntegrationConfig.proxyPath}`)
         console.log(`proxy path with event path: ${event.path}`)

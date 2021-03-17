@@ -18,6 +18,7 @@ describe('cwe.processor', () => {
   it('should ignore event if it is no CloudWatch Event event', () => {
     const cweCfg = { routes: [{ source: /.*/, action: () => 1 }] }
     expect(cwe(cweCfg, {} as any, context)).toBe(null)
+    // @ts-ignore
     expect(cwe(cweCfg, { 'detail-type': 'Not a scheduled event' } as CweEvent, context)).toBe(null)
   })
 
